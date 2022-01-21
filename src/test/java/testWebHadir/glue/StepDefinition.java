@@ -1,5 +1,7 @@
 package testWebHadir.glue;
 
+import static org.junit.Assert.assertEquals;
+
 import java.io.File;
 import java.io.IOException;
 import java.text.DateFormat;
@@ -19,11 +21,13 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import testWebHadir.pages.LeaderPage;
+import testWebHadir.pages.ServerSettingPage;
 
 import io.cucumber.spring.CucumberContextConfiguration;
 import testWebHadir.config.AutomationFrameworkConfiguration;
 import testWebHadir.driver.DriverSingleton;
-import testWebHadir.pages.Login;
+import testWebHadir.pages.LoginPage;
 import testWebHadir.pages.ReportingKaryawan;
 import testWebHadir.pages.SelfRegistration;
 import testWebHadir.pages.StatusRequest;
@@ -36,6 +40,7 @@ import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 @CucumberContextConfiguration
@@ -44,7 +49,9 @@ public class StepDefinition {
 
 	private WebDriver driver;
 	private Screenshots sc;
-	private Login login;
+	private LoginPage loginPage;
+	private ServerSettingPage serverSettingPage;
+	private LeaderPage leaderPage;
 	private ReportingKaryawan reportingKaryawan;
 	private SelfRegistration selfRegistration;
 	private StatusRequest statusRequest;
@@ -62,7 +69,9 @@ public class StepDefinition {
 		report.attachReporter(htmlreporter);
 		DriverSingleton.getInstance(configurationProperties.getBrowser());
 		sc = new Screenshots();
-		login = new Login();
+		loginPage = new LoginPage();
+		serverSettingPage = new ServerSettingPage();
+		leaderPage = new LeaderPage();
 		reportingKaryawan = new ReportingKaryawan();
 		selfRegistration = new SelfRegistration();
 		statusRequest = new StatusRequest();
@@ -73,19 +82,51 @@ public class StepDefinition {
 
 	///////////// LOGIN /////////////////////
 
-	@Given("User go to the website")
-	public void User_go_to_the_website() {
+	@Given("^User go to the Website")
+	public void user_go_to_the_Website() {
 		driver = DriverSingleton.getDriver();
 		driver.get(Constants.URL);
-		extentTest.log(Status.PASS, "Navigating to "+ Constants.URL);
-	}	
-
-	@When("User input username password and click SignIn")
-	public void User_input_username_password_and_click_SignIn() {
-		login.inputLogin(configurationProperties.getUsernameLogin(), configurationProperties.getPasswordLogin());
-		// extentTest.log(LogStatus.PASS, "User input username password and click login");
-		extentTest.log(Status.PASS, "User input username password and click login");
+		extentTest.log(Status.PASS, "Navigating to " + Constants.URL);
 	}
+	
+	@When("^User input username password and click sign in")
+	public void user_input_username_password_and_click_sign_in() {
+		loginPage.gotoLogin(configurationProperties.getUserName(), configurationProperties.getPassword());
+		extentTest.log(Status.PASS, "User input username password and click sign in");
+	}
+	
+	@Then("^User can login to the Website")
+	public void user_can_login_to_the_Website() {
+		 assertEquals(configurationProperties.getDisplayName1(), loginPage.getDisplayName1());
+		 extentTest.log(Status.PASS, "User can login to the Website");
+	}
+	
+	///////////////////Scenario Server Setting/////////////////////
+	
+		@When("^User go to server setting page")
+		public void user_go_to_server_setting_page() {
+			serverSettingPage.gotoServerSetting();
+			extentTest.log(Status.PASS, "User go to server setting page");
+		}
+		
+		@Then("^User can edit server data")
+		public void user_can_edit_server_data() {
+			 serverSettingPage.getEditServer();
+			 extentTest.log(Status.PASS, "User can edit server data");
+		}
+		
+		////////////////////Scenario Leader/////////////////////////
+		@When("^User go to leader page")
+		public void user_go_to_leader_page() {
+			leaderPage.gotoLeader();
+			extentTest.log(Status.PASS, "User go to leader page");
+		}
+		
+		@Then("^User can see employee attendance")
+		public void user_can_see_employee_attendance() {
+			 assertEquals(configurationProperties.getDisplayName2(), leaderPage.getDisplayName2());
+			 extentTest.log(Status.PASS, "User can see employee attendance");
+		}	
 
 
 	///////////// REPORTING KARYAWAN /////////////////////
