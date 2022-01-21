@@ -5,9 +5,12 @@ public enum TestCases {
 	T1("Testing login page"),
 	T2("Testing server setting page"),
 	T3("Testing leader page"),
-	T4("Testing the reporting karyawan"),
-	T5("Testing the self registration"),
-	T6("Testing the status request");
+	T4("Testing form regristration page"),
+	T5("Testing form staff page"),
+	T6("Testing form Register page"),
+	T7("Testing the reporting karyawan"),
+	T8("Testing the self registration"),
+	T9("Testing the status request");
 	
 	private String testName;
 

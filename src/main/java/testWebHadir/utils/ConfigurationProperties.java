@@ -29,6 +29,140 @@ public class ConfigurationProperties {
 	private String displayName3;
 
 	/////////////////////////////////////////////////////////////////
+	
+	@Value("${searchAllPageDK}")
+	private String searchAllPageDK;
+	
+	@Value("${foto2DK}")
+	private String foto2DK;
+	
+	@Value("${username2DK}")
+	private String username2DK;
+	
+	@Value("${email2DK}")
+	private String email2DK;
+	
+	@Value("${fullname2DK}")
+	private String fullname2DK;
+	
+	@Value("${password2DK}")
+	private String passwword2DK;
+	
+	@Value("${imei2DK}")
+	private String imei2DK;
+	
+	@Value("${nik2DK}")
+	private String nik2DK;
+	
+	@Value("${levelDK}")
+	private String levelDK;
+	
+	@Value("${tipekaryawanDK}")
+	private String tipekaryawanDK;
+	
+	@Value("${departemenDK}")
+	private String departemenDK;
+	
+	@Value("${posisiDK}")
+	private String posisiDK;
+	
+	@Value("${jamkerjaDK}")
+	private String jamkerjaDK;
+	
+	@Value("${lokasiDK}")
+	private String lokasiDK;
+	
+	@Value("${lemburDK}")
+	private String lemburDK;
+	
+	@Value("${cutiDK}")
+	private String cutiDK;
+	
+	@Value("${jammasukDK}")
+	private String jammasukDK;
+	
+	@Value("${jamkeluarDK}")
+	private String jamkeluarDK;
+	
+	@Value("${absenpointDK}")
+	private String absenpointDK;
+	
+	@Value("${leaderDK}")
+	private String leaderDK;
+	
+	@Value("${supervisorDK}")
+	private String supervisorDK;
+	
+	@Value("${managerDK}")
+	private String managerDK;
+	
+	@Value("${displayFormRegistDK}")
+	private String displayFormRegistDK;
+	
+	@Value("${foto3DK}")
+	private String foto3DK;
+	
+	@Value("${email3DK}")
+	private String email3DK;
+	
+	@Value("${fullname3DK}")
+	private String fullname3DK;
+	
+	@Value("${password3DK}")
+	private String password3DK;
+	
+	@Value("${imei3DK}")
+	private String imei3DK;
+	
+	@Value("${nik3DK}")
+	private String nik3DK;
+	
+	@Value("${startDateDK}")
+	private String startDateDK;
+	
+	@Value("${displayFormStaffDK}")
+	private String displayFormStaffDK;
+	
+	@Value("${categoryDK")
+	private String categoryDK;
+	
+	@Value("${chooseDivisiDK}")
+	private String chooseDivisiDK;
+	
+	@Value("${lembur3DK}")
+	private String lembur3DK;
+	
+	@Value("${nik4DK}")
+	private String nik4DK;
+	
+	@Value("${fullname4DK}")
+	private String fullname4DK;
+	
+	@Value("${imei4DK}")
+	private String imei4DK;
+	
+	@Value("${email4DK}")
+	private String email4DK;
+	
+	@Value("${tipekaryawan2DK}")
+	private String tipekaryawan2DK;
+	
+	@Value("${displayRegisterDK}")
+	private String displayRegisterDK;
+	
+	@Value("${catNameDK}")
+	private String catNameDK;
+	
+	@Value("${nameEmployeeDK}")
+	private String nameEmployeeDK;
+	
+	@Value("${catName2DK}")
+	private String catName2DK;
+	
+	@Value("${level2DK}")
+	private String level2DK;
+	
+	///////////////////////////////////////////////////////////////
 
 	@Value("${inputNIKReportingKaryawan}")
 	private String inNIKReportingKaryawan;
@@ -89,6 +223,7 @@ public class ConfigurationProperties {
 	
 	//////////////////////////////////////////////////////////
 	
+	
 	public String getSearchGlobalStatusRequest() {
 		return inSearchGlobalStatusRequest;
 	}
@@ -133,4 +268,197 @@ public class ConfigurationProperties {
 		return inNIKReportingKaryawan;
 	}
 
+	public String getSearchAllPageDK() {
+		return searchAllPageDK;
+	}
+
+	/////////////////////////////////////////////////////////////
+	
+	public String getFoto2DK() {
+		return foto2DK;
+	}
+
+	public String getUsername2DK() {
+		return username2DK;
+	}
+
+	public String getEmail2DK() {
+		return email2DK;
+	}
+
+	public String getFullname2DK() {
+		return fullname2DK;
+	}
+
+	public String getPasswword2DK() {
+		return passwword2DK;
+	}
+
+	public String getImei2DK() {
+		return imei2DK;
+	}
+
+	public String getNik2DK() {
+		return nik2DK;
+	}
+
+	public String getLevelDK() {
+		return levelDK;
+	}
+
+	public String getTipekaryawanDK() {
+		return tipekaryawanDK;
+	}
+
+	public String getDepartemenDK() {
+		return departemenDK;
+	}
+
+	public String getPosisiDK() {
+		return posisiDK;
+	}
+
+	public String getJamkerjaDK() {
+		return jamkerjaDK;
+	}
+
+	public String getLokasiDK() {
+		return lokasiDK;
+	}
+
+	public String getLemburDK() {
+		return lemburDK;
+	}
+
+	public String getCutiDK() {
+		return cutiDK;
+	}
+
+	public String getJammasukDK() {
+		return jammasukDK;
+	}
+
+	public String getJamkeluarDK() {
+		return jamkeluarDK;
+	}
+
+	public String getAbsenpointDK() {
+		return absenpointDK;
+	}
+
+	public String getLeaderDK() {
+		return leaderDK;
+	}
+
+	public String getSupervisorDK() {
+		return supervisorDK;
+	}
+
+	public String getManagerDK() {
+		return managerDK;
+	}
+
+	public String getDisplayFormRegistDK() {
+		return displayFormRegistDK;
+	}
+
+	public String getFoto3DK() {
+		return foto3DK;
+	}
+
+	public String getEmail3DK() {
+		return email3DK;
+	}
+
+	public String getFullname3DK() {
+		return fullname3DK;
+	}
+
+	public String getPassword3DK() {
+		return password3DK;
+	}
+
+	public String getImei3DK() {
+		return imei3DK;
+	}
+
+	public String getNik3DK() {
+		return nik3DK;
+	}
+
+	public String getStartDateDK() {
+		return startDateDK;
+	}
+
+	public String getDisplayFormStaffDK() {
+		return displayFormStaffDK;
+	}
+
+	public String getCategoryDK() {
+		return categoryDK;
+	}
+
+	public String getChooseDivisiDK() {
+		return chooseDivisiDK;
+	}
+
+	public String getLembur3DK() {
+		return lembur3DK;
+	}
+
+	public String getNik4DK() {
+		return nik4DK;
+	}
+
+	public String getFullname4DK() {
+		return fullname4DK;
+	}
+
+	public String getImei4DK() {
+		return imei4DK;
+	}
+
+	public String getEmail4DK() {
+		return email4DK;
+	}
+
+	public String getTipekaryawan2DK() {
+		return tipekaryawan2DK;
+	}
+
+	public String getDisplayRegisterDK() {
+		return displayRegisterDK;
+	}
+
+	public String getCatNameDK() {
+		return catNameDK;
+	}
+
+	public String getNameEmployeeDK() {
+		return nameEmployeeDK;
+	}
+
+	public String getCatName2DK() {
+		return catName2DK;
+	}
+
+	public String getLevel2DK() {
+		return level2DK;
+	}
+	
+	/////////////////////////////////////////////////
+	
+	public String getInSearchGlobalReportingKaryawan() {
+		return inSearchGlobalReportingKaryawan;
+	}
+
+	public String getInSearchGlobalSelfRegistration() {
+		return inSearchGlobalSelfRegistration;
+	}
+
+	public String getInSearchGlobalStatusRequest() {
+		return inSearchGlobalStatusRequest;
+	}
+	
+	
 }
