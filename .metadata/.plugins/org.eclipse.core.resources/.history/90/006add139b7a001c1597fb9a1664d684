@@ -1,0 +1,16 @@
+browser=Chrome
+inputUsername=telecol-admin
+inputPassword=admin123
+
+########### Syaeful anwar
+inputNIKReportingKaryawan=D6191459
+inputNameReportingKaryawan=Rizal Nopiardi
+inputLeaderReportingKaryawan=leader
+inputSearchGlobalReportingKaryawan=staff
+inputEditEmailSelfRegistration=aku
+inputEditFullnameSelfRegistration=kamu
+inputJumlahCutiSelfRegistration=2
+inputJamMasukSelfRegistration=8
+inputJamKeluarSelfRegistration=17
+inputSearchGlobalSelfRegistration=staff
+inputSearchGlobalStatusRequest=staff
