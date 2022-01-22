@@ -31,6 +31,12 @@ import io.cucumber.spring.CucumberContextConfiguration;
 import testWebHadir.config.AutomationFrameworkConfiguration;
 import testWebHadir.driver.DriverSingleton;
 import testWebHadir.pages.LoginPage;
+import testWebHadir.pages.ManageAbsenPoin;
+import testWebHadir.pages.ManageDepartemen;
+import testWebHadir.pages.ManageHariCuti;
+import testWebHadir.pages.ManagePosisi;
+import testWebHadir.pages.ManageSetting;
+import testWebHadir.pages.ManageTipe;
 import testWebHadir.pages.ReportingKaryawan;
 import testWebHadir.pages.SelfRegistration;
 import testWebHadir.pages.StatusRequest;
@@ -52,6 +58,7 @@ public class StepDefinition {
 
 	private WebDriver driver;
 	private Screenshots sc;
+	
 	private LoginPage loginPage;
 	private ServerSettingPage serverSettingPage;
 	private LeaderPage leaderPage;
@@ -61,6 +68,13 @@ public class StepDefinition {
 	private ReportingKaryawan reportingKaryawan;
 	private SelfRegistration selfRegistration;
 	private StatusRequest statusRequest;
+	private ManageTipe manageTipe;
+	private ManageAbsenPoin manageAbsenPoin;
+	private ManageHariCuti manageHariCuti;
+	private ManagePosisi managePosisi;
+	private ManageSetting manageSetting;
+	private ManageDepartemen manageDepartemen;
+	
 	ExtentTest extentTest;
 	static ExtentReports report = new ExtentReports();
 	static ExtentSparkReporter htmlreporter = new ExtentSparkReporter("src/main/resources/reportTestWebHadir.html");
@@ -74,6 +88,7 @@ public class StepDefinition {
 	public void initializeObjects() {
 		report.attachReporter(htmlreporter);
 		DriverSingleton.getInstance(configurationProperties.getBrowser());
+		
 		sc = new Screenshots();
 		loginPage = new LoginPage();
 		serverSettingPage = new ServerSettingPage();
@@ -84,6 +99,13 @@ public class StepDefinition {
 		reportingKaryawan = new ReportingKaryawan();
 		selfRegistration = new SelfRegistration();
 		statusRequest = new StatusRequest();
+		manageTipe = new ManageTipe();
+		manageHariCuti = new ManageHariCuti();
+		manageAbsenPoin = new ManageAbsenPoin();
+		managePosisi = new ManagePosisi();
+		manageSetting = new ManageSetting();
+		manageDepartemen = new ManageDepartemen();
+		
 		TestCases[] tests = TestCases.values();
 		extentTest = report.createTest(tests[Utils.testCount].getTestName());
 		Utils.testCount++;
@@ -618,6 +640,279 @@ public class StepDefinition {
 		extentTest.log(Status.FAIL, "User input staff in form search", MediaEntityBuilder
 				.createScreenCaptureFromPath(Constants.PATH_SCREENSHOT + "Global_Search_ChangeRequestStatus.png")
 				.build());
+	}
+	
+	///////////// MANAGE TIPE ///////////// 
+	
+	@Given("^User enters the employee type manage page")
+	public void User_enters_the_employee_type_manage_page() {
+	manageTipe.addManageTipe();
+	extentTest.log(Status.PASS, "User enters the employee type manage page");
+	}
+	
+	@And("^User click search bar type")
+	public void User_click_search_bar_type() throws InterruptedException {
+	manageTipe.clickSearchTipe();
+	extentTest.log(Status.PASS, "User click search bar type");
+	}
+	
+	@And("^User input data search type")
+	public void User_input_data_search_type() throws InterruptedException, IOException {
+	manageTipe.searchTipe();
+	sc.takeScreenshotsSectionPage("//*[@id=\"navbar-main\"]/div/form/div/div", "Search_Tipe");
+	extentTest.log(Status.PASS, "User input data search type", MediaEntityBuilder.createScreenCaptureFromPath(Constants.PATH_SCREENSHOT+"Search_Tipe.png").build());
+	}
+	
+	@When("^User adds employee data")
+	public void User_adds_employee_data() throws InterruptedException {
+	manageTipe.gotoTambahData(configurationProperties.getTipeKaryawan1());
+	extentTest.log(Status.PASS, "User adds employee data");
+	}
+	
+	@And("^User change employee data")
+	public void User_change_employee_data() throws InterruptedException {
+	manageTipe.gotoUbahData();
+	extentTest.log(Status.PASS, "User change employee data");
+	}
+	
+	@When("^User remove employee data")
+	public void User_removed_employee_data() throws InterruptedException {
+	manageTipe.gotoHapusData();
+	extentTest.log(Status.PASS, "User remove employee data");
+	}
+	
+	
+	////// Manage Hari Cuti ///////////
+	
+	@Given("^User enter to page")
+	public void User_enter_to_page() {
+	manageHariCuti.addManageHariCuti();
+	extentTest.log(Status.PASS, "User enter to page");
+	}
+	
+	@When("^User click search bar hari cuti")
+	public void User_click_search_bar_hari_cuti() throws InterruptedException {
+	manageHariCuti.clickSearchHariCuti();
+	extentTest.log(Status.PASS, "User click search bar hari cuti");
+	}
+	
+	@And("^User input data search hari cuti")
+	public void User_input_data_search_hari_cuti() throws InterruptedException, IOException {
+	manageHariCuti.searchHariCuti(configurationProperties.getSearchHariCuti());
+	sc.takeScreenshotsSectionPage("//*[@id=\"navbar-main\"]/div/form/div/div", "Search_Hari_Cuti");
+	extentTest.log(Status.PASS, "User input data search hari cuti", MediaEntityBuilder.createScreenCaptureFromPath(Constants.PATH_SCREENSHOT+"Search_Hari_Cuti.png").build());
+	}
+	
+	@When("^User adds data hari cuti")
+	public void User_adds_data_hari_cuti() throws InterruptedException {
+	manageHariCuti.gotoTambahData1(configurationProperties.getSetHariCuti());
+	extentTest.log(Status.PASS, "User adds data hari cuti");
+	}
+	
+	@And("^User change data hari cuti")
+	public void User_change_data_hari_cuti() throws InterruptedException {
+	manageHariCuti.gotoUbahData1();
+	extentTest.log(Status.PASS, "User change data hari cuti");
+	}
+	
+	@When("^User removed data hari cuti")
+	public void User_removed_data_hari_cuti() throws InterruptedException {
+	manageHariCuti.gotoHapusData1();
+	extentTest.log(Status.PASS, "User removed data hari cuti");
+	}
+	
+	
+	//////////Manage Absen Poin///////
+	
+	@Given("^User go to page absen poin")
+	public void User_go_to_page_absen_poin() {
+	manageAbsenPoin.addManageAbsenPoin();
+	extentTest.log(Status.PASS, "User go to page absen poin");
+	}
+	
+	@When("^User adds data absen poin")
+	public void User_adds_data_absen_poin() throws InterruptedException {
+	manageAbsenPoin.gotoTambahData3(configurationProperties.getInTempatAbsen(), configurationProperties.getInNamaLokasi(),
+			configurationProperties.getInLatitude(), configurationProperties.getInLongitude());
+	extentTest.log(Status.PASS, "User adds data absen poin");
+	}
+	
+	@And("^User change data absen poin")
+	public void User_change_data_absen_poin() throws InterruptedException, IOException {
+	manageAbsenPoin.gotoUbahAbsenPoin(configurationProperties.getEditTempatAbsen(), configurationProperties.getEditLatitude(),
+			configurationProperties.getEditLongitude());
+	sc.takeScreenshotsSectionPage("//div[@role='alert']", "TypoEditAbsenPoint");
+	extentTest.log(Status.PASS, "User change data absen poin", MediaEntityBuilder.createScreenCaptureFromPath(Constants.PATH_SCREENSHOT+"TypoEditAbsenPoint.png").build());
+	}
+	
+	@And("^User removed data absen poin")
+	public void User_removed_data_absen_poin() throws InterruptedException, IOException {
+	manageAbsenPoin.gotoHapusAbsenPoin();
+	sc.takeScreenshotsSectionPage("//div[@role='alert']", "TypoRemoveAbsenPoint");
+	extentTest.log(Status.PASS, "User removed data absen poin", MediaEntityBuilder.createScreenCaptureFromPath(Constants.PATH_SCREENSHOT+"TypoRemoveAbsenPoint.png").build());
+	}
+	
+	@When("^User click search bar absen poin")
+	public void User_click_search_bar_absen_poin() throws InterruptedException {
+	manageAbsenPoin.clickSearchAbsenPoin();
+	extentTest.log(Status.PASS, "User click search bar absen poin");
+	}
+	
+	@And("^User input data search absen poin")
+	public void User_input_search_absen_poin() {
+	manageAbsenPoin.searchAbsenPoin();
+	extentTest.log(Status.PASS, "User input data search absen poin");
+	}
+	
+	
+	///////////// MANAGE POSISI ///////////// 
+	
+	@Given("^User go to manage position page")
+	public void User_go_to_manage_position_page() throws InterruptedException{
+	managePosisi.gotoManagePosisi();
+	extentTest.log(Status.PASS, "User go to manage position page");
+	}
+	
+	@When("^User click tambah button in position page")
+	public void User_click_tambah_button_in_position_page() throws InterruptedException {
+	managePosisi.clickTambah();
+	extentTest.log(Status.PASS, "User click tambah button in position page");
+	}
+	
+	@And("^User input new name position and submit")
+	public void User_input_new_name_position_and_submit() throws InterruptedException  {
+	managePosisi.inputPosisi(configurationProperties.getInPosisi());
+	extentTest.log(Status.PASS, "User input new name position and submit");
+	}
+	
+	@When("^User click ubah data button in position page")
+	public void User_click_ubah_data_button_in_position_page() throws InterruptedException {
+	managePosisi.clickEdit();
+	extentTest.log(Status.PASS, "User click tambah button in position page");
+	}
+	
+	@And("^User input edited data in position page and submit")
+	public void User_input_edited_data_in_position_page_and_submit() throws InterruptedException {
+	managePosisi.editPosisi(configurationProperties.getEditPosisi());
+	extentTest.log(Status.PASS, "User input edited data in position page and submit");
+	}
+	
+	@When("^User click hapus data button in position page")
+	public void User_click_hapus_data_button_in_position_page() throws InterruptedException{
+	managePosisi.removePosisi();
+	extentTest.log(Status.PASS, "User click hapus data button in position page");
+	}
+	
+	@When("^User click search bar position")
+	public void User_click_search_bar_position() {
+	managePosisi.clickSearch();
+	extentTest.log(Status.PASS, "User click search bar position");
+	}
+	
+	@And("^User input data search position")
+	public void User_input_data_search_position() throws InterruptedException, IOException {
+	managePosisi.searchPosisi(configurationProperties.getSearchPosisi());
+	sc.takeScreenshotsSectionPage("//*[@id=\"navbar-main\"]/div/form/div/div", "Search_Position");
+	extentTest.log(Status.FAIL, "User can input data but its only refresh page", MediaEntityBuilder.createScreenCaptureFromPath(Constants.PATH_SCREENSHOT+"Search_Position.png").build());
+	}
+	
+	
+	///////////// MANAGE SETTING ///////////// 
+	
+	@Given("^User go to manage setting page")
+	public void User_go_to_manage_setting_page() throws InterruptedException{
+	manageSetting.gotoManageSetting();
+	extentTest.log(Status.PASS, "User go to manage setting page");
+	}
+	
+	@When("^User click on and off button")
+	public void User_click_on_and_off_button() throws InterruptedException {
+	manageSetting.buttonActive();
+	extentTest.log(Status.PASS, "User click on and off button");
+	}
+	
+	@When("^User click ubah data button in setting page")
+	public void User_click_ubah_data_button_in_setting_page() throws InterruptedException {
+	manageSetting.clickEdit();
+	extentTest.log(Status.PASS, "User click ubah data button in setting page");
+	}
+	
+	@And("^User input data on validation timer")
+	public void User_input_data_on_validation_timer() throws InterruptedException {
+	manageSetting.editTimer(configurationProperties.getInTimer());
+	extentTest.log(Status.PASS, "User input data on validation timer");
+	}
+	
+	@And("^User input data on radius absen and submit")
+	public void User_input_data_on_radius_absen_and_submit() throws InterruptedException, IOException {
+	manageSetting.editRadius(configurationProperties.getInRadius());
+	sc.takeScreenshotsFullPage("EditDataErrorNotification");
+	extentTest.log(Status.FAIL, "User can input data on radius absen and submit but there is failed notification", MediaEntityBuilder.createScreenCaptureFromPath(Constants.PATH_SCREENSHOT+"EditDataErrorNotification.png").build());
+	}
+	
+	@When("^User click search bar setting")
+	public void User_click_search_bar_setting() {
+	manageSetting.clickSearchSetting();
+	extentTest.log(Status.PASS, "User click search bar setting");
+	}
+	
+	@And("^User input data search setting")
+	public void User_input_data_search_setting() throws InterruptedException, IOException {
+	manageSetting.searchSetting(configurationProperties.getSearchSetting());
+	sc.takeScreenshotsSectionPage("//*[@id=\"navbar-main\"]/div/form/div/div", "Setting_Search");
+	extentTest.log(Status.FAIL, "User can input data but its only refresh page", MediaEntityBuilder.createScreenCaptureFromPath(Constants.PATH_SCREENSHOT+"Setting_Search.png").build());
+	}
+	
+	
+	///////////// MANAGE DEPARTEMEN ///////////// 
+	
+	@Given("^User go to manage departemen page")
+	public void User_go_to_manage_departemen_page(){
+	manageDepartemen.gotoManageDepartemen();
+	extentTest.log(Status.PASS, "User go to manage departemen page");
+	}
+	
+	@When("^User click tambah button in departemen page")
+	public void User_click_tambah_button_in_departemen_page() throws InterruptedException {
+	manageDepartemen.clickTambah();
+	extentTest.log(Status.PASS, "User click tambah button in departemen page");
+	}
+	
+	@And("^User input new departemen and submit")
+	public void User_input_new_departemen_and_submit() throws InterruptedException {
+	manageDepartemen.inputDepartemen(configurationProperties.getInDepartemen());
+	extentTest.log(Status.PASS, "User input new departemen and submit");
+	}
+	
+	@When("^User click ubah data button in departemen page")
+	public void User_click_ubah_data_button_in_departemen_page() throws InterruptedException {
+	manageDepartemen.clickEdit();
+	extentTest.log(Status.PASS, "User click ubah data button in departemen page");
+	}
+	
+	@And("^User input edited data and submit in departemen page")
+	public void User_input_edited_data_and_submit_in_departemen_page() throws InterruptedException {
+	manageDepartemen.editDepartemen(configurationProperties.getEditDepartemen());
+	extentTest.log(Status.PASS, "User input edited data and submit in departemen page ");
+	}
+	
+	@When("^User click hapus data and submit in departemen page")
+	public void User_click_hapus_data_and_submit_in_departemen_page() throws InterruptedException{
+	manageDepartemen.removeDepartemen();
+	extentTest.log(Status.PASS, "User click hapus data and submit in departemen page");
+	}
+	
+	@When("^User click search bar departemen")
+	public void User_click_search_bar_departemen() {
+	manageDepartemen.clickSearchDepartemen();
+	extentTest.log(Status.PASS, "User click search bar position");
+	}
+	
+	@And("^User input data search departemen")
+	public void User_input_data_search_departemen() throws InterruptedException, IOException {
+	manageDepartemen.searchDepartemen(configurationProperties.getSearchDepartemen());
+	sc.takeScreenshotsSectionPage("//*[@id=\"navbar-main\"]/div/form/div/div", "Search_Departemen");
+	extentTest.log(Status.FAIL, "User can input data but its only refresh page", MediaEntityBuilder.createScreenCaptureFromPath(Constants.PATH_SCREENSHOT+"Search_Departemen.png").build());
 	}
 
 	@After

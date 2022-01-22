@@ -196,6 +196,72 @@ public class ConfigurationProperties {
 
 	@Value("${inputSearchGlobalStatusRequest}")
 	private String inSearchGlobalStatusRequest;
+	
+	////////////Modul posisi, modul setting, modul departemen ///////////////////
+	@Value("${inputPosisi}")
+	private String inPosisi;
+	
+	@Value("${editPosisi}")
+	private String editPosisi;
+	
+	@Value("${inputTimer}")
+	private String inTimer;
+	
+	@Value("${inputRadius}")
+	private String inRadius;
+	
+	@Value("${inputDepartemen}")
+	private String inDepartemen;
+	
+	@Value("${editDepartemen}")
+	private String editDepartemen;
+	
+	@Value("${searchPosisi}")
+	private String searchPosisi;
+	
+	@Value("${searchSetting}")
+	private String searchSetting;
+	
+	@Value("${searchDepartemen}")
+	private String searchDepartemen;
+	
+	//////////// Modul Tipe, Modul Hari Cuti, Modul Absen Point ///////////
+	
+	@Value("${tipeKaryawan1}")
+	private String tipeKaryawan1;
+	
+	@Value("${searchTipe}")
+	private String searchTipe;
+	
+	@Value("${searchHariCuti}")
+	private String searchHariCuti;
+	
+	@Value("${searchAbsenPoint}")
+	private String searchAbsenPoint;
+	
+	@Value("${setHariCuti}")
+	private String setHariCuti;
+	
+	@Value("${inputTempatAbsen}")
+	private String inTempatAbsen;
+	
+	@Value("${inputNamaLokasi}")
+	private String inNamaLokasi;
+	
+	@Value("${inputLatitude}")
+	private String inLatitude;
+	
+	@Value("${inputLongitude}")
+	private String inLongitude;
+	
+	@Value("${editTempatAbsen}")
+	private String editTempatAbsen;
+	
+	@Value("${editLatitude}")
+	private String editLatitude;
+	
+	@Value("${editLongitude}")
+	private String editLongitude;
 
 	public String getBrowser() {
 		return browser;
@@ -459,6 +525,92 @@ public class ConfigurationProperties {
 	public String getInSearchGlobalStatusRequest() {
 		return inSearchGlobalStatusRequest;
 	}
+
+	//////////////////////////////////////////////////////////
 	
+	public String getInPosisi() {
+		return inPosisi;
+	}
+
+	public String getEditPosisi() {
+		return editPosisi;
+	}
+
+	public String getInTimer() {
+		return inTimer;
+	}
+
+	public String getInRadius() {
+		return inRadius;
+	}
+
+	public String getInDepartemen() {
+		return inDepartemen;
+	}
+
+	public String getEditDepartemen() {
+		return editDepartemen;
+	}
+
+	public String getSearchPosisi() {
+		return searchPosisi;
+	}
+
+	public String getSearchSetting() {
+		return searchSetting;
+	}
+
+	public String getSearchDepartemen() {
+		return searchDepartemen;
+	}
 	
+	//////////////////////////////////////////////////
+	
+	public String getSearchTipe() {
+		return searchTipe;
+	}
+
+	public String getSearchHariCuti() {
+		return searchHariCuti;
+	}
+
+	public String getSearchAbsenPoint() {
+		return searchAbsenPoint;
+	}
+
+	public String getSetHariCuti() {
+		return setHariCuti;
+	}
+
+	public String getInTempatAbsen() {
+		return inTempatAbsen;
+	}
+
+	public String getInNamaLokasi() {
+		return inNamaLokasi;
+	}
+
+	public String getInLatitude() {
+		return inLatitude;
+	}
+
+	public String getInLongitude() {
+		return inLongitude;
+	}
+
+	public String getEditTempatAbsen() {
+		return editTempatAbsen;
+	}
+
+	public String getEditLatitude() {
+		return editLatitude;
+	}
+
+	public String getEditLongitude() {
+		return editLongitude;
+	}
+	
+	public String getTipeKaryawan1() {
+		return tipeKaryawan1;
+	}
 }

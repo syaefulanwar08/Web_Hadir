@@ -10,7 +10,13 @@ public enum TestCases {
 	T6("Testing form Register page"),
 	T7("Testing the reporting karyawan"),
 	T8("Testing the self registration"),
-	T9("Testing the status request");
+	T9("Testing the status request"),
+	T10("Testing page employee type page"),
+	T11("Testing page manage hari cuti"),
+	T12("Test manage absen poin"),
+	T13("Testing the authentication in manage position"),
+	T14("Testing authentication and reporting in manage setting"),
+	T15("Testing authentication in manage departemen");
 	
 	private String testName;
 

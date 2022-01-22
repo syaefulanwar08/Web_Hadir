@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import com.magang.webhadirdika.driver.DriverSingleton;
+import testWebHadir.driver.DriverSingleton;
 
 public class LeaderPage {
 	
