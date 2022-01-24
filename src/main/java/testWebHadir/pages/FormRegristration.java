@@ -201,11 +201,13 @@ private WebDriver driver;
 		btnSubmit.click();
 	}
 	
-	public String DisplayFormRegist() {
+	public String DisplayFormRegist() throws InterruptedException {
+		Thread.sleep(3000);
 		return displayFormRegist.getText();
 	}
 	
-	public void OKRegristration() {
+	public void OKRegristration() throws InterruptedException {
+		Thread.sleep(2000);
 		btnOKRegistration.click();
 	}
 }

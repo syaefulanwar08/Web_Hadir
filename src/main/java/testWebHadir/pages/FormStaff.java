@@ -160,7 +160,11 @@ private WebDriver driver;
 	}
 	
 	public void searchEmployee(String catName, String nameEmployee) {
-		
+		try {
+			Thread.sleep(2000);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		lstCategory.sendKeys(catName, Keys.ENTER);
 		searchCategory.sendKeys(nameEmployee);
 		try {
@@ -250,9 +254,19 @@ private WebDriver driver;
 		}
 		txtEmail.sendKeys(Keys.CONTROL+"a",Keys.BACK_SPACE);
 		txtEmail.sendKeys(email3);
+		try {
+			Thread.sleep(2000);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		txtFullName.sendKeys(Keys.CONTROL+"a",Keys.BACK_SPACE);
 		txtFullName.sendKeys(fullname3);
 		txtPassword.sendKeys(password3);
+		try {
+			Thread.sleep(2000);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		txtImei.sendKeys(Keys.CONTROL+"a",Keys.BACK_SPACE);
 		txtImei.sendKeys(imei3);
 		txtNIK.sendKeys(Keys.CONTROL+"a",Keys.BACK_SPACE);
@@ -271,11 +285,21 @@ private WebDriver driver;
 		txtTipeKaryawan.sendKeys(tipekaryawan, Keys.ENTER);
 		txtDepartemen.sendKeys(departemen, Keys.ENTER);
 		txtPosisi.sendKeys(posisi, Keys.ENTER);
+		try {
+			Thread.sleep(3000);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		txtJamKerja.sendKeys(jamkerja, Keys.ENTER);
 		txtLokasi.sendKeys(lokasi, Keys.ENTER);
 		txtLembur.sendKeys(lembur, Keys.ENTER);
 		txtCuti.sendKeys(Keys.CONTROL+"a");
 		txtCuti.sendKeys(cuti);
+		try {
+			Thread.sleep(3000);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		txtJamMasuk.sendKeys(Keys.CONTROL+"a",Keys.BACK_SPACE);
 		txtJamMasuk.sendKeys(jammasuk);
 		txtJamKeluar.sendKeys(Keys.CONTROL+"a",Keys.BACK_SPACE);
@@ -288,7 +312,12 @@ private WebDriver driver;
 		}
 		txtGM.sendKeys(Keys.ARROW_DOWN, Keys.ENTER);
 		btnSubmit.click();
-		
+		try {
+			Thread.sleep(2000);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		btnOKStaff.click();
 	}
 	
 	public String displayFormstaff() {

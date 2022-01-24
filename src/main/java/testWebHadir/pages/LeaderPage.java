@@ -16,9 +16,6 @@ private WebDriver driver;
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy(css ="body > div:nth-child(7) > div > div.modal.fade.show > div > div > div.modal-body.text-danger > form > button.btn.btn-secondary")
-	private WebElement btnClose;
-	
 	@FindBy(css ="#sidenav-main > div > div > ul > li:nth-child(3) > a")
 	private WebElement btnLeader;
 	
@@ -28,10 +25,10 @@ private WebDriver driver;
 	@FindBy(css ="#root > div > div.mt--8.container-fluid > div > div > div > div:nth-child(2) > div > div.border-0.card-header > h3")
 	private WebElement txtDisplayName2;
 	
-	public void gotoLeader() {
-		
-		btnClose.click();
+	public void gotoLeader() throws InterruptedException {
+		Thread.sleep(2000);
 		btnLeader.click();
+		Thread.sleep(2000);
 		btnLihat.click();
 	}
 	

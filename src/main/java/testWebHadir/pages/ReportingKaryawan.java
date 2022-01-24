@@ -102,7 +102,8 @@ public class ReportingKaryawan {
 		return scSearchGlobal1;
 	}
 
-	public void gotoReportingKaryawan() {
+	public void gotoReportingKaryawan() throws InterruptedException {
+		Thread.sleep(5000);
 		gotoReportingKaryawan.click();
 	}
 

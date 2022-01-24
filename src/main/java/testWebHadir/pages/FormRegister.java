@@ -16,8 +16,8 @@ private WebDriver driver;
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy (xpath ="/html/body/div[2]/div/div[3]/button[1]")
-	WebElement btnOKStaff;
+//	@FindBy (xpath ="/html/body/div[2]/div/div[3]/button[1]")
+//	WebElement btnOKStaff;
 	
 	@FindBy (css = "#sidenav-main > div > div > ul > li:nth-child(6) > a")
 	WebElement formRegister;
@@ -165,7 +165,8 @@ private WebDriver driver;
 	
 	
 	
-	public void PageRegister() {
+	public void PageRegister() throws InterruptedException {
+		Thread.sleep(2000);
 //		btnOKStaff.click();
 		formRegister.click();
 
@@ -302,7 +303,7 @@ private WebDriver driver;
 	
 	public void alertRegister() {
 		try {
-			Thread.sleep(10000);
+			Thread.sleep(20000);
 		} catch (Exception e) {
 			// TODO: handle exception
 		}

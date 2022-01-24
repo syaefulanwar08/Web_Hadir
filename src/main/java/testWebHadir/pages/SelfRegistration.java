@@ -139,6 +139,11 @@ public class SelfRegistration {
 	@FindBy(xpath = "//*[@id=\"navbar-main\"]/div/form/div/div/input[@placeholder='Search']")
 	private WebElement searchGlobal;
 
+	@FindBy(xpath = "//*[@id=\"exampleFormControlInput1\"]")
+	private WebElement txtAlasan;
+	
+	@FindBy(xpath = "/html/body/div[2]/div/div[1]/div/div/div[2]/div/form/button[2]")
+	private WebElement btnSubmitAlasan;
 
 	public void gotoSelfRegistration() {
 		gotoSelfRegistration.click();
@@ -216,12 +221,16 @@ public class SelfRegistration {
 	public void klikSubmit() throws InterruptedException {
 		btnSubmit.click();
 		Thread.sleep(4000);
-		alertSetelahSubmit.click();		
+		alertSetelahSubmit.click();
+		Thread.sleep(2000);
 	}
 
 	public void hapusData() throws InterruptedException {
 		btnReject.click();
 		Thread.sleep(4000);
+		txtAlasan.sendKeys("Undur diri");
+		btnSubmitAlasan.click();
+		Thread.sleep(5000);
 	}
 	
 	public void klikSearchGlobal() {

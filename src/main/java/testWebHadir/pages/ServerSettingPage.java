@@ -25,9 +25,12 @@ private WebDriver driver;
 	@FindBy(xpath="//*[@id=\"exampleModalLabel\"]")
 	private WebElement txtDisplayName0;	
 	
+	@FindBy(css ="body > div:nth-child(7) > div > div.modal.fade.show > div > div > div.modal-body.text-danger > form > button.btn.btn-secondary")
+	private WebElement btnClose;
 	
-	public void gotoServerSetting() {
+	public void gotoServerSetting() throws InterruptedException {
 		btnServerSetting.click();
+		Thread.sleep(2000);
 		btnUbahData.click();
 	}
 	
@@ -36,7 +39,8 @@ private WebDriver driver;
             Thread.sleep(3000);
         } catch (Exception e) {
         	// TODO: handle exception
-        }	
+        }
+		btnClose.click();
 	}
 
 }

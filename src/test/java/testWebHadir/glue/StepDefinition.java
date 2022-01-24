@@ -135,7 +135,7 @@ public class StepDefinition {
 	/////////////////// Scenario Server Setting/////////////////////
 
 	@When("^User go to server setting page")
-	public void user_go_to_server_setting_page() {
+	public void user_go_to_server_setting_page() throws InterruptedException {
 		serverSettingPage.gotoServerSetting();
 		extentTest.log(Status.PASS, "User go to server setting page");
 	}
@@ -148,7 +148,7 @@ public class StepDefinition {
 
 	//////////////////// Scenario Leader/////////////////////////
 	@When("^User go to leader page")
-	public void user_go_to_leader_page() {
+	public void user_go_to_leader_page() throws InterruptedException {
 		leaderPage.gotoLeader();
 		extentTest.log(Status.PASS, "User go to leader page");
 	}
@@ -208,7 +208,7 @@ public class StepDefinition {
 	}
 
 	@Then("^User Complete Register Employee")
-	public void getDisplayFormRegist() {
+	public void getDisplayFormRegist() throws InterruptedException {
 		formRegristration.DisplayFormRegist();
 		assertEquals(configurationProperties.getDisplayFormRegistDK(), formRegristration.DisplayFormRegist());
 		formRegristration.OKRegristration();
@@ -282,7 +282,7 @@ public class StepDefinition {
 ///////////////////////// Form Register (Dwiky Kurniawan) \\\\\\\\\\\\\\\\\\\\\\\\
 
 	@When("^User Can Open Form Register")
-	public void goPageRegister() {
+	public void goPageRegister() throws InterruptedException {
 		formRegister.PageRegister();
 		formRegristration.SearchAllPage(configurationProperties.getSearchAllPageDK());
 		extentTest.log(Status.PASS, "User Can Open Form Register");
@@ -389,10 +389,11 @@ public class StepDefinition {
 		extentTest.log(Status.FAIL, "User Fail Edit Data Employee Because Photo Can't Upload", MediaEntityBuilder
 				.createScreenCaptureFromPath(Constants.PATH_SCREENSHOT + "Gagal Ubah Data.png").build());
 	}
+	
 	///////////// REPORTING KARYAWAN /////////////////////
 
 	@Given("User go to the reporting karyawan page")
-	public void User_go_to_the_reporting_karyawan_page() {
+	public void User_go_to_the_reporting_karyawan_page() throws InterruptedException {
 		reportingKaryawan.gotoReportingKaryawan();
 		extentTest.log(Status.PASS, "User go to the reporting karyawan page");
 	}
@@ -560,12 +561,12 @@ public class StepDefinition {
 		extentTest.log(Status.PASS, "User click button lihat seluruh anggota karyawan");
 	}
 
-	@And("User edit user information")
-	public void User_edit_user_information() {
-		selfRegistration.inputDataUserInformation(configurationProperties.getInEditEmailSelfRegistration(),
-				configurationProperties.getInEditFullnameSelfRegistration());
-		extentTest.log(Status.PASS, "User edit user information");
-	}
+//	@And("User edit user information")
+//	public void User_edit_user_information() {
+//		selfRegistration.inputDataUserInformation(configurationProperties.getInEditEmailSelfRegistration(),
+//				configurationProperties.getInEditFullnameSelfRegistration());
+//		extentTest.log(Status.PASS, "User edit user information");
+//	}
 
 	@And("User click open hidden password")
 	public void User_click_open_hidden_password() throws InterruptedException {
@@ -588,15 +589,20 @@ public class StepDefinition {
 	}
 
 	@And("User click submit")
-	public void User_click_submit() throws InterruptedException {
+	public void User_click_submit() throws InterruptedException, IOException {
 		selfRegistration.klikSubmit();
-		extentTest.log(Status.PASS, "User click submit");
+		sc.takeScreenshotsFullPage("AccountAlreadyExistUserName");
+		extentTest.log(Status.FAIL, "User click submit", MediaEntityBuilder
+				.createScreenCaptureFromPath(Constants.PATH_SCREENSHOT + "AccountAlreadyExistUserName.png").build());
 	}
 
 	@And("User click button reject")
-	public void User_click_button_reject() throws InterruptedException {
+	public void User_click_button_reject() throws InterruptedException, IOException {
+		selfRegistration.gotoSelfRegistration();
 		selfRegistration.hapusData();
-		extentTest.log(Status.PASS, "User click button reject");
+		sc.takeScreenshotsFullPage("Can'tReject");
+		extentTest.log(Status.FAIL, "User click button reject", MediaEntityBuilder
+				.createScreenCaptureFromPath(Constants.PATH_SCREENSHOT + "Can'tReject.png").build());
 	}
 
 	@When("User click search global self registration page")
