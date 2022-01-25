@@ -22,7 +22,7 @@ private WebDriver driver;
 	@FindBy(id ="t4")
 	private WebElement btnLihat;
 	
-	@FindBy(css ="#root > div > div.mt--8.container-fluid > div > div > div > div:nth-child(2) > div > div.border-0.card-header > h3")
+	@FindBy(xpath ="//div[contains(text(),'Tidak ada data absen hari ini')]")
 	private WebElement txtDisplayName2;
 	
 	public void gotoLeader() throws InterruptedException {
@@ -30,6 +30,7 @@ private WebDriver driver;
 		btnLeader.click();
 		Thread.sleep(2000);
 		btnLihat.click();
+		Thread.sleep(4000);
 	}
 	
 	public String getDisplayName2() {

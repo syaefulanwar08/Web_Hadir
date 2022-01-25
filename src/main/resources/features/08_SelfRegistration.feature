@@ -4,7 +4,7 @@ Feature: Self Registration
 		Given User go to the self registration page 
 		When User click button gotoForm 
 		And User click button lihat seluruh anggota karyawan
-#		And User edit user information
+		And User edit user information
 		And User click open hidden password
 		And User input job information
 		And User input choose leader

@@ -221,17 +221,22 @@ public class SelfRegistration {
 	public void klikSubmit() throws InterruptedException {
 		btnSubmit.click();
 		Thread.sleep(4000);
-		alertSetelahSubmit.click();
-		Thread.sleep(2000);
 	}
 
 	public void hapusData() throws InterruptedException {
 		btnReject.click();
 		Thread.sleep(4000);
-		txtAlasan.sendKeys("Undur diri");
+		txtAlasan.sendKeys("syaeful_dummy");
 		btnSubmitAlasan.click();
 		Thread.sleep(5000);
+		gotoSelfRegistration.click();
+		Thread.sleep(4000);
 	}
+	
+	public void klikAlert() throws InterruptedException {
+        alertSetelahSubmit.click();
+        Thread.sleep(2000);
+    }
 	
 	public void klikSearchGlobal() {
 		searchGlobal.click();

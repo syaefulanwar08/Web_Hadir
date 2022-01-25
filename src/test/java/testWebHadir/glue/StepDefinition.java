@@ -561,12 +561,12 @@ public class StepDefinition {
 		extentTest.log(Status.PASS, "User click button lihat seluruh anggota karyawan");
 	}
 
-//	@And("User edit user information")
-//	public void User_edit_user_information() {
-//		selfRegistration.inputDataUserInformation(configurationProperties.getInEditEmailSelfRegistration(),
-//				configurationProperties.getInEditFullnameSelfRegistration());
-//		extentTest.log(Status.PASS, "User edit user information");
-//	}
+	@And("User edit user information")
+	public void User_edit_user_information() {
+		selfRegistration.inputDataUserInformation(configurationProperties.getInEditEmailSelfRegistration(),
+				configurationProperties.getInEditFullnameSelfRegistration());
+		extentTest.log(Status.PASS, "User edit user information");
+	}
 
 	@And("User click open hidden password")
 	public void User_click_open_hidden_password() throws InterruptedException {
@@ -592,6 +592,7 @@ public class StepDefinition {
 	public void User_click_submit() throws InterruptedException, IOException {
 		selfRegistration.klikSubmit();
 		sc.takeScreenshotsFullPage("AccountAlreadyExistUserName");
+		selfRegistration.klikAlert();
 		extentTest.log(Status.FAIL, "User click submit", MediaEntityBuilder
 				.createScreenCaptureFromPath(Constants.PATH_SCREENSHOT + "AccountAlreadyExistUserName.png").build());
 	}
@@ -601,7 +602,7 @@ public class StepDefinition {
 		selfRegistration.gotoSelfRegistration();
 		selfRegistration.hapusData();
 		sc.takeScreenshotsFullPage("Can'tReject");
-		extentTest.log(Status.FAIL, "User click button reject", MediaEntityBuilder
+		extentTest.log(Status.PASS, "User click button reject", MediaEntityBuilder
 				.createScreenCaptureFromPath(Constants.PATH_SCREENSHOT + "Can'tReject.png").build());
 	}
 

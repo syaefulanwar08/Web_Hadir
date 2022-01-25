@@ -25,7 +25,7 @@ private WebDriver driver;
 	@FindBy(xpath="//*[@id=\"exampleModalLabel\"]")
 	private WebElement txtDisplayName0;	
 	
-	@FindBy(css ="body > div:nth-child(7) > div > div.modal.fade.show > div > div > div.modal-body.text-danger > form > button.btn.btn-secondary")
+	@FindBy(xpath ="//button[normalize-space()='Close']")
 	private WebElement btnClose;
 	
 	public void gotoServerSetting() throws InterruptedException {
